@@ -1,6 +1,8 @@
 package com.tonytor.marvelhero.controllers;
 
+import com.tonytor.marvelhero.model.Character;
 import com.tonytor.marvelhero.model.Comic;
+import com.tonytor.marvelhero.services.ComicCharacterService;
 import com.tonytor.marvelhero.services.ComicService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,9 +17,11 @@ public class ComicController {
     static private final Logger logger = LoggerFactory.getLogger(ComicController.class);
 
     private final ComicService service;
+    private final ComicCharacterService comicCharacterService;
 
-    public ComicController(ComicService service) {
+    public ComicController(ComicService service, ComicCharacterService comicCharacterService) {
         this.service = service;
+        this.comicCharacterService = comicCharacterService;
     }
 
     @GetMapping()
@@ -32,14 +36,16 @@ public class ComicController {
 
     @GetMapping("/{id}/characters")
     public List<Character> getCharacters(@PathVariable("id") Integer id){
-        return service.getCharacters();
+        return comicCharacterService.getCharacterByComic(id);
     }
 
-    @PostMapping()
-    public Comic createComic(){
-        service.
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Comic createComic(@RequestBody Comic comic){
+        return service.create(comic);
     }
 
-
-
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Comic updateComic(@PathVariable("id") Integer id, @RequestBody Comic comic){
+        return service.update(id, comic);
+    }
 }

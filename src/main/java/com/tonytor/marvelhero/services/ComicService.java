@@ -31,7 +31,7 @@ public class ComicService implements IService<Comic> {
 
     @Override
     public List<Comic> getAll() {
-        logger.info(String.format("Get all comic"));
+        logger.info("Get all comic");
         return (List<Comic>) repository.findAll();
     }
 
@@ -53,10 +53,5 @@ public class ComicService implements IService<Comic> {
     public void delete(int id) {
         logger.info(String.format("Delete comic with id: %s", id));
         repository.deleteById(id);
-    }
-
-    public List<Character> getCharacters(int id){
-        logger.info(String.format("Get all characters of comic", id));
-        return null;
     }
 }

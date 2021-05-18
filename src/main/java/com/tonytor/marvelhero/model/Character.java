@@ -1,25 +1,27 @@
 package com.tonytor.marvelhero.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
-import java.util.Set;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 public class Character extends AbstractIdEntity{
+    @Size(max = 50)
+    @Column(nullable = false)
+    @NotNull
     String name;
-    @ManyToMany
-    @JoinTable(name="character_сomic",
-            joinColumns=@JoinColumn(name="character_id"),
-            inverseJoinColumns=@JoinColumn(name="сomic_id"))
-    Set<Comic> сomicSet;
+    @Column(nullable = false)
+    @NotNull
     LocalDate created;
+    @Size(max = 2000)
     String description;
+    @Size(max = 200)
     String status;
 
 }
