@@ -1,5 +1,7 @@
 package com.tonytor.marvelhero.controllers;
 
+import com.tonytor.marvelhero.config.utils.filters.CharacterFilterAndSorter;
+import com.tonytor.marvelhero.config.utils.filters.ComicFilterAndSorter;
 import com.tonytor.marvelhero.model.Character;
 import com.tonytor.marvelhero.model.Comic;
 import com.tonytor.marvelhero.services.ComicCharacterService;
@@ -10,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/v1/public/comics", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -25,8 +28,12 @@ public class ComicController {
     }
 
     @GetMapping()
-    public List<Comic> getAll(){
-        return service.getAll();
+    public List<Comic> getAll(@RequestParam(required = false) Map<String,String> allParams){
+        return ComicFilterAndSorter
+                .filterAndSort(
+                        allParams,
+                        service.getAll()
+                );
     }
 
     @GetMapping("/{id}")
@@ -35,8 +42,12 @@ public class ComicController {
     }
 
     @GetMapping("/{id}/characters")
-    public List<Character> getCharacters(@PathVariable("id") Integer id){
-        return comicCharacterService.getCharacterByComic(id);
+    public List<Character> getCharacters(@PathVariable("id") Integer id, @RequestParam(required = false) Map<String,String> allParams){
+        return CharacterFilterAndSorter
+                .filterAndSort(
+                        allParams,
+                        comicCharacterService.getCharacterByComic(id)
+                );
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)

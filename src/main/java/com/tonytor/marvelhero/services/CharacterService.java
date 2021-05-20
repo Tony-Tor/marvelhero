@@ -1,14 +1,17 @@
 package com.tonytor.marvelhero.services;
 
 import com.tonytor.marvelhero.config.exceptions.NotFoundException;
+import com.tonytor.marvelhero.config.utils.Util;
 import com.tonytor.marvelhero.model.Character;
-import com.tonytor.marvelhero.model.Comic;
 import com.tonytor.marvelhero.repository.CharacterRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class CharacterService  implements IService<Character> {
@@ -18,7 +21,6 @@ public class CharacterService  implements IService<Character> {
     public CharacterService(CharacterRepository repository) {
         this.repository = repository;
     }
-
 
     @Override
     public Character get(int id) {
@@ -32,7 +34,7 @@ public class CharacterService  implements IService<Character> {
 
     @Override
     public List<Character> getAll() {
-        logger.info(String.format("Get all character"));
+        logger.info("Get all character");
         return (List<Character>) repository.findAll();
     }
 
@@ -55,4 +57,5 @@ public class CharacterService  implements IService<Character> {
         logger.info(String.format("Delete character with id: %s", id));
         repository.deleteById(id);
     }
+
 }
