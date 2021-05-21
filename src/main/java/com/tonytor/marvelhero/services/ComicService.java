@@ -18,7 +18,6 @@ public class ComicService implements IService<Comic> {
         this.repository = repository;
     }
 
-
     @Override
     public Comic get(int id) {
         logger.info(String.format("Get comic with id: %s", id));
