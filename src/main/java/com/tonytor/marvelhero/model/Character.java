@@ -22,7 +22,5 @@ public class Character extends AbstractIdEntity{
     LocalDate created;
     @Size(max = 2000)
     String description;
-    @Size(max = 200)
-    String status;
 
 }

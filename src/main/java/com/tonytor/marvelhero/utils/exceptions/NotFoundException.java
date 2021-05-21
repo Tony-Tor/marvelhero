@@ -1,4 +1,4 @@
-package com.tonytor.marvelhero.config.exceptions;
+package com.tonytor.marvelhero.utils.exceptions;
 
 public class NotFoundException extends RuntimeException{
     public NotFoundException(String message) {

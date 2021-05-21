@@ -1,6 +1,6 @@
-package com.tonytor.marvelhero.config.utils.filters;
+package com.tonytor.marvelhero.utils.filters;
 
-import com.tonytor.marvelhero.config.utils.Util;
+import com.tonytor.marvelhero.utils.Util;
 import com.tonytor.marvelhero.model.Comic;
 
 import java.time.LocalDate;
@@ -23,6 +23,7 @@ public class ComicFilterAndSorter {
                 .filter(c -> filterStatus(c, params.get("status")))
                 .filter(c -> filterPageOf(c, params.get("startCountPage"), params.get("endCountPage")))
                 .filter(c -> filterPrise(c, params.get("startPrise"), params.get("endPrise")))
+                .limit(Integer.parseInt(params.get("limit")))
                 .collect(Collectors.toList());
     }
 
@@ -82,12 +83,6 @@ public class ComicFilterAndSorter {
             case "-published":
                 return compareByCreated(c2, c1);
 
-            case "status":
-                return compareByStatus(c1, c2);
-
-            case "-status":
-                return compareByStatus(c2, c1);
-
             case "pageOf":
                 return compareByPageOf(c1, c2);
 
@@ -112,10 +107,6 @@ public class ComicFilterAndSorter {
 
     static private int compareByCreated(Comic c1, Comic c2) {
         return c1.getPublished().compareTo(c2.getPublished());
-    }
-
-    static private int compareByStatus(Comic c1, Comic c2) {
-        return c1.getStatus().compareTo(c2.getStatus());
     }
 
     static private int compareByPageOf(Comic c1, Comic c2) {

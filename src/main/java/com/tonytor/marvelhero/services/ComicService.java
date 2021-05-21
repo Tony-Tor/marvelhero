@@ -1,17 +1,13 @@
 package com.tonytor.marvelhero.services;
 
-import com.tonytor.marvelhero.config.exceptions.NotFoundException;
-import com.tonytor.marvelhero.config.utils.Util;
+import com.tonytor.marvelhero.utils.exceptions.NotFoundException;
 import com.tonytor.marvelhero.model.Comic;
 import com.tonytor.marvelhero.repository.ComicRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @Service
 public class ComicService implements IService<Comic> {

@@ -1,4 +1,4 @@
-package com.tonytor.marvelhero.config.utils;
+package com.tonytor.marvelhero.utils;
 
 import java.time.LocalDate;
 

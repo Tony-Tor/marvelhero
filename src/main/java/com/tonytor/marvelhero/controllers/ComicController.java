@@ -1,7 +1,7 @@
 package com.tonytor.marvelhero.controllers;
 
-import com.tonytor.marvelhero.config.utils.filters.CharacterFilterAndSorter;
-import com.tonytor.marvelhero.config.utils.filters.ComicFilterAndSorter;
+import com.tonytor.marvelhero.utils.filters.CharacterFilterAndSorter;
+import com.tonytor.marvelhero.utils.filters.ComicFilterAndSorter;
 import com.tonytor.marvelhero.model.Character;
 import com.tonytor.marvelhero.model.Comic;
 import com.tonytor.marvelhero.services.ComicCharacterService;

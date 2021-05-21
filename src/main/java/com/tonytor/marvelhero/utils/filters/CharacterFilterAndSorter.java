@@ -1,6 +1,6 @@
-package com.tonytor.marvelhero.config.utils.filters;
+package com.tonytor.marvelhero.utils.filters;
 
-import com.tonytor.marvelhero.config.utils.Util;
+import com.tonytor.marvelhero.utils.Util;
 import com.tonytor.marvelhero.model.Character;
 
 import java.time.LocalDate;
@@ -21,6 +21,7 @@ public class CharacterFilterAndSorter {
                 .filter(c -> filterCreated(c, params.get("before"), params.get("after")))
                 .filter(c -> filterDescription(c, params.get("description")))
                 .filter(c -> filterStatus(c, params.get("status")))
+                .limit(Integer.parseInt(params.get("limit")))
                 .collect(Collectors.toList());
     }
 
@@ -61,8 +62,6 @@ public class CharacterFilterAndSorter {
 
     static private int compare(Character c1, Character c2, String sortBy) {
         switch (sortBy) {
-            case "name":
-                return compareByName(c1, c2);
 
             case "-name":
                 return compareByName(c2, c1);
@@ -73,12 +72,7 @@ public class CharacterFilterAndSorter {
             case "-created":
                 return compareByCreated(c2, c1);
 
-            case "status":
-                return compareByStatus(c1, c2);
-
-            case "-status":
-                return compareByStatus(c2, c1);
-
+            case "name":
             default:
                 return compareByName(c1, c2);
         }
@@ -90,9 +84,5 @@ public class CharacterFilterAndSorter {
 
     static private int compareByCreated(Character c1, Character c2) {
         return c1.getCreated().compareTo(c2.getCreated());
-    }
-
-    static private int compareByStatus(Character c1, Character c2) {
-        return c1.getStatus().compareTo(c2.getStatus());
     }
 }

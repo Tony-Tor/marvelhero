@@ -27,6 +27,4 @@ public class Comic extends AbstractIdEntity{
     Integer prise;
     @Range(min = 1, max = 5000)
     Integer pageOfCount;
-    @Size(max = 200)
-    String status;
 }
