@@ -21,6 +21,7 @@ public class ComicCharacterService {
     }
 
     public List<Character> getCharacterByComic(Integer id){
+        logger.info(String.format("Get characters by comic: %s", id));
         return repository.findAllByComic_Id(id)
                 .stream()
                 .map(ComicCharacter::getCharacter)
@@ -28,6 +29,7 @@ public class ComicCharacterService {
     }
 
     public List<Comic> getComicByCharacter(Integer id){
+        logger.info(String.format("Get comics by character: %s", id));
         return repository.findAllByCharacter_Id(id)
                 .stream()
                 .map(ComicCharacter::getComic)
@@ -35,6 +37,7 @@ public class ComicCharacterService {
     }
 
     public ComicCharacter createComicCharacterRelation(Character character, Comic comic){
+        logger.info(String.format("Create relation: %s - %s", character.getName(), comic.getName()));
         ComicCharacter comicCharacter = new ComicCharacter();
         comicCharacter.setCharacter(character);
         comicCharacter.setComic(comic);

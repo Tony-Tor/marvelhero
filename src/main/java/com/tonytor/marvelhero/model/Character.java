@@ -13,13 +13,14 @@ import java.time.LocalDate;
 @Data
 public class Character extends AbstractIdEntity{
     @Size(max = 50)
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     @NotNull
     String name;
     @Column(nullable = false)
     @NotNull
     LocalDate created;
     @Size(max = 2000)
+    @Column(nullable = false, length = 2000)
     String description;
     @ManyToOne(fetch = FetchType.EAGER)
     Image image;

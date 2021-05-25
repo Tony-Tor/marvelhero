@@ -38,4 +38,17 @@ public class Util {
 
         return result;
     }
+
+    static public int limit(String limit){
+        int l = 10;
+        if (limit == null) return l;
+
+        try {
+            l = Integer.parseInt(limit);
+        } catch (NumberFormatException e){
+            return l;
+        }
+
+        return l;
+    }
 }

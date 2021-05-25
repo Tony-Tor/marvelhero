@@ -17,17 +17,20 @@ import java.time.LocalDate;
 @Data
 public class Comic extends AbstractIdEntity{
     @Size(max = 50)
-    @Column(nullable = false)
+    @Column(nullable = false, length = 2000)
     @NotNull
     String name;
     @Column(nullable = false)
     @NotNull
     LocalDate published;
     @Size(max = 2000)
+    @Column(nullable = false, length = 2000)
     String description;
     @Range(min = 0, max = 3000000)
+    @Column(nullable = false)
     Integer prise;
     @Range(min = 1, max = 5000)
+    @Column(nullable = false)
     Integer pageOfCount;
     @ManyToOne(fetch = FetchType.EAGER)
     Image image;

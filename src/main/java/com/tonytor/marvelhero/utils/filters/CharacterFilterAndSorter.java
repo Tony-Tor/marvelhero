@@ -2,6 +2,8 @@ package com.tonytor.marvelhero.utils.filters;
 
 import com.tonytor.marvelhero.utils.Util;
 import com.tonytor.marvelhero.model.Character;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -9,6 +11,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class CharacterFilterAndSorter {
+
+    static private final Logger logger = LoggerFactory.getLogger(CharacterFilterAndSorter.class);
 
     static public List<Character> filterAndSort(Map<String, String> params, List<Character> list) {
         return sort(params, filter(params, list));
@@ -18,10 +22,10 @@ public class CharacterFilterAndSorter {
         return list.stream()
                 .filter(c -> filterName(c, params.get("name")))
                 .filter(c -> filterNameStartWith(c, params.get("nameStartWith")))
-                .filter(c -> filterCreated(c, params.get("before"), params.get("after")))
+                .filter(c -> filterCreated(c, params.get("after"), params.get("before")))
                 .filter(c -> filterDescription(c, params.get("description")))
                 .filter(c -> filterStatus(c, params.get("status")))
-                .limit(Integer.parseInt(params.get("limit")))
+                .limit(Util.limit(params.get("limit")))
                 .collect(Collectors.toList());
     }
 
@@ -37,9 +41,9 @@ public class CharacterFilterAndSorter {
         return true;
     }
 
-    static private boolean filterCreated(Character c, String before, String after) {
+    static private boolean filterCreated(Character c, String after, String before) {
         LocalDate created = c.getCreated();
-        return Util.betweenLocalData(created, before, after);
+        return Util.betweenLocalData(created, after, before);
     }
 
     static private boolean filterDescription(Character c, String description) {
@@ -60,7 +64,10 @@ public class CharacterFilterAndSorter {
                 .collect(Collectors.toList());
     }
 
+
+
     static private int compare(Character c1, Character c2, String sortBy) {
+        if (sortBy == null) sortBy = "name";
         switch (sortBy) {
 
             case "-name":

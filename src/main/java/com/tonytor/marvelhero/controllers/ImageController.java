@@ -35,7 +35,7 @@ public class ImageController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Image createComic(@RequestBody byte[] bytes){
+    public Image createImage(@RequestBody byte[] bytes){
         Image image = new Image();
         image.setName(UUID.randomUUID().toString());
         image.setBase64(Base64.getEncoder().encodeToString(bytes));
@@ -45,7 +45,7 @@ public class ImageController {
     }
 
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Image updateComic(@PathVariable("id") Integer id, @RequestBody Image image) {
+    public Image updateImage(@PathVariable("id") Integer id, @RequestBody Image image) {
         return service.update(id, image);
     }
 }

@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 @Data
 public class Image extends AbstractIdEntity {
     @Size(max = 50)
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     @NotNull
     String name;
     @NotNull

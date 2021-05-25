@@ -42,7 +42,7 @@ public class CharacterController {
     }
 
     @GetMapping("/{id}/comic")
-    public List<Comic> getCharacters(@PathVariable("id") Integer id, @RequestParam(required = false) Map<String,String> allParams){
+    public List<Comic> getComic(@PathVariable("id") Integer id, @RequestParam(required = false) Map<String,String> allParams){
         return ComicFilterAndSorter
                 .filterAndSort(
                         allParams,
@@ -51,7 +51,7 @@ public class CharacterController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Character createComic(@RequestBody Character character){
+    public Character createCharacter(@RequestBody Character character){
         return service.create(character);
     }
 

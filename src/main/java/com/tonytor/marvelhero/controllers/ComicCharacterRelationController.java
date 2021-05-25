@@ -37,7 +37,7 @@ public class ComicCharacterRelationController {
         return createRelation(characterId, comicId);
     }
 
-    public ComicCharacterTo createRelation(Integer characterId, Integer comicId){
+    private ComicCharacterTo createRelation(Integer characterId, Integer comicId){
         Character character = characterService.get(characterId);
         Comic comic = comicService.get(comicId);
         return new ComicCharacterTo(comicCharacterService.createComicCharacterRelation(character, comic));
