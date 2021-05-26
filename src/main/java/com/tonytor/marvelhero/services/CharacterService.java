@@ -1,5 +1,6 @@
 package com.tonytor.marvelhero.services;
 
+import com.tonytor.marvelhero.model.to.CharacterTo;
 import com.tonytor.marvelhero.utils.exceptions.NotFoundException;
 import com.tonytor.marvelhero.model.Character;
 import com.tonytor.marvelhero.repository.CharacterRepository;
@@ -13,9 +14,11 @@ import java.util.List;
 public class CharacterService  implements IService<Character> {
     static private final Logger logger = LoggerFactory.getLogger(CharacterService.class);
     private final CharacterRepository repository;
+    private final ImageService imageService;
 
-    public CharacterService(CharacterRepository repository) {
+    public CharacterService(CharacterRepository repository, ImageService imageService) {
         this.repository = repository;
+        this.imageService = imageService;
     }
 
     public Character get(int id) {
@@ -38,10 +41,15 @@ public class CharacterService  implements IService<Character> {
         return repository.save(obj);
     }
 
-    public Character update(int id, Character obj) {
+    public Character update(int id, CharacterTo obj) {
         logger.info(String.format("Update character with id=%s to %s", id, obj));
-        obj.setId(id);
-        return repository.save(obj);
+        Character character  = new Character();
+        character.setName(obj.getName());
+        character.setDescription(obj.getDescription());
+        character.setCreated(obj.getCreated());
+        character.setImage(imageService.get(obj.getImage()));
+        character.setId(id);
+        return repository.save(character);
     }
 
 }

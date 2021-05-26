@@ -1,5 +1,6 @@
 package com.tonytor.marvelhero.controllers;
 
+import com.tonytor.marvelhero.model.to.CharacterTo;
 import com.tonytor.marvelhero.utils.filters.CharacterFilterAndSorter;
 import com.tonytor.marvelhero.utils.filters.ComicFilterAndSorter;
 import com.tonytor.marvelhero.model.Character;
@@ -53,7 +54,7 @@ public class CharacterController {
     }
 
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Character updateCharacter(@PathVariable("id") Integer id, @RequestBody Character character){
+    public Character updateCharacter(@PathVariable("id") Integer id, @RequestBody CharacterTo character){
         return service.update(id, character);
     }
 }
