@@ -20,7 +20,6 @@ public class CharacterFilterAndSorter {
                 .filter(c -> filterNameStartWith(c, params.get("nameStartWith")))
                 .filter(c -> filterCreated(c, params.get("after"), params.get("before")))
                 .filter(c -> filterDescription(c, params.get("description")))
-                .filter(c -> filterStatus(c, params.get("status")))
                 .limit(Util.limit(params.get("limit")))
                 .collect(Collectors.toList());
     }
@@ -44,13 +43,7 @@ public class CharacterFilterAndSorter {
 
     static private boolean filterDescription(Character c, String description) {
         if (description != null)
-            return c.getName().contains(description);
-        return true;
-    }
-
-    static private boolean filterStatus(Character c, String status) {
-        if (status != null)
-            return c.getName().contains(status);
+            return c.getDescription().contains(description);
         return true;
     }
 

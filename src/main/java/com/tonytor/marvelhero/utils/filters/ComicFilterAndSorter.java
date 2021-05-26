@@ -20,7 +20,6 @@ public class ComicFilterAndSorter {
                 .filter(c -> filterNameStartWith(c, params.get("nameStartWith")))
                 .filter(c -> filterPublished(c, params.get("after"), params.get("before")))
                 .filter(c -> filterDescription(c, params.get("description")))
-                .filter(c -> filterStatus(c, params.get("status")))
                 .filter(c -> filterPageOf(c, params.get("startCountPage"), params.get("endCountPage")))
                 .filter(c -> filterPrise(c, params.get("startPrise"), params.get("endPrise")))
                 .limit(Util.limit(params.get("limit")))
@@ -47,13 +46,7 @@ public class ComicFilterAndSorter {
 
     static private boolean filterDescription(Comic c, String description) {
         if (description != null)
-            return c.getName().contains(description);
-        return true;
-    }
-
-    static private boolean filterStatus(Comic c, String status) {
-        if (status != null)
-            return c.getName().contains(status);
+            return c.getDescription().contains(description);
         return true;
     }
 
