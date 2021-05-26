@@ -1,6 +1,5 @@
 package com.tonytor.marvelhero.model.to;
 
-import com.tonytor.marvelhero.controllers.CharacterController;
 import com.tonytor.marvelhero.model.ComicCharacter;
 import lombok.Data;
 import org.slf4j.Logger;

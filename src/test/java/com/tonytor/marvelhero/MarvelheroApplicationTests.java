@@ -4,35 +4,23 @@ import com.tonytor.marvelhero.controllers.CharacterController;
 import com.tonytor.marvelhero.controllers.ComicCharacterRelationController;
 import com.tonytor.marvelhero.controllers.ComicController;
 import com.tonytor.marvelhero.controllers.ImageController;
-import com.tonytor.marvelhero.model.Character;
-import com.tonytor.marvelhero.model.Comic;
-import com.tonytor.marvelhero.model.Image;
 import com.tonytor.marvelhero.model.to.ComicCharacterTo;
-import com.tonytor.marvelhero.model.to.ImageTo;
 import com.tonytor.marvelhero.services.ComicCharacterService;
 import com.tonytor.marvelhero.services.ImageService;
-import com.tonytor.marvelhero.utils.filters.CharacterFilterAndSorter;
-import com.tonytor.marvelhero.utils.filters.ComicFilterAndSorter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.Base64;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 
+@SuppressWarnings("EmptyMethod")
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application-test.properties")
 
@@ -72,7 +60,7 @@ class ControllersTests {
 
         characterController.createCharacter(CharacterTestingObjects.TEST0);
         characterController.createCharacter(CharacterTestingObjects.TEST1);
-        characterController.createCharacter(CharacterTestingObjects.TEST2);;
+        characterController.createCharacter(CharacterTestingObjects.TEST2);
     }
 
     //CreateTests

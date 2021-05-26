@@ -1,6 +1,5 @@
 package com.tonytor.marvelhero.utils.filters;
 
-import com.tonytor.marvelhero.controllers.CharacterController;
 import com.tonytor.marvelhero.utils.Util;
 import com.tonytor.marvelhero.model.Comic;
 import org.slf4j.Logger;

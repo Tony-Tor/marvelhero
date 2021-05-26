@@ -1,7 +1,5 @@
 package com.tonytor.marvelhero.repository;
 
-import com.tonytor.marvelhero.model.Character;
-import com.tonytor.marvelhero.model.Comic;
 import com.tonytor.marvelhero.model.ComicCharacter;
 import org.springframework.data.repository.CrudRepository;
 

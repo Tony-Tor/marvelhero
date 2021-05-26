@@ -2,8 +2,6 @@ package com.tonytor.marvelhero;
 
 import com.tonytor.marvelhero.model.Character;
 
-import java.time.LocalDate;
-
 public class CharacterTestingObjects {
     public static final Character TEST0 = new Character();
     public static final Character TEST1 = new Character();
