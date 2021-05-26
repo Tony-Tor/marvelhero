@@ -7,6 +7,7 @@ import com.tonytor.marvelhero.repository.CharacterRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -41,6 +42,7 @@ public class CharacterService  implements IService<Character> {
         return repository.save(obj);
     }
 
+    @Transactional
     public Character update(int id, CharacterTo obj) {
         logger.info(String.format("Update character with id=%s to %s", id, obj));
         Character character  = new Character();
