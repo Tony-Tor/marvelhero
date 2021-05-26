@@ -1,2 +1,8 @@
-FROM adoptopenjdk:11-jre-hotspot
-ENTRYPOINT ["java", "-jar", "marvelhero-0.0.1-SNAPSHOT.jar"]
+FROM adoptopenjdk/openjdk15:ubi
+
+ARG JAR_FILE=target/marvelhero-0.0.1-SNAPSHOT.jar
+WORKDIR /opt/app
+COPY ${JAR_FILE} app.jar
+
+EXPOSE 8080
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom" , "-jar", "app.jar"]
