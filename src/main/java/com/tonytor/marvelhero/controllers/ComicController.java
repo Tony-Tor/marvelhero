@@ -17,7 +17,6 @@ import java.util.Map;
 @RestController
 @RequestMapping(value = "/v1/public/comics", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ComicController {
-    static private final Logger logger = LoggerFactory.getLogger(ComicController.class);
 
     private final ComicService service;
     private final ComicCharacterService comicCharacterService;

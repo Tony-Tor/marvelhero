@@ -12,8 +12,6 @@ import java.util.stream.Collectors;
 
 public class ComicFilterAndSorter {
 
-    static private final Logger logger = LoggerFactory.getLogger(ComicFilterAndSorter.class);
-
     static public List<Comic> filterAndSort(Map<String, String> params, List<Comic> list) {
         return sort(params, filter(params, list));
     }

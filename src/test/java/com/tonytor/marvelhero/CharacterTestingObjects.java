@@ -9,8 +9,6 @@ public class CharacterTestingObjects {
     public static final Character TEST_NO_WRONG0 = new Character();
     public static final Character TEST_NO_WRONG1 = new Character();
 
-    public static final Character TEST_NULL = new Character();
-
     public static final Character TEST_WRONG0 = new Character();
     public static final Character TEST_WRONG1 = new Character();
     public static final Character TEST_WRONG2 = new Character();

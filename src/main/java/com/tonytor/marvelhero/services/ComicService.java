@@ -18,7 +18,6 @@ public class ComicService implements IService<Comic> {
         this.repository = repository;
     }
 
-    @Override
     public Comic get(int id) {
         logger.info(String.format("Get comic with id: %s", id));
         return repository.findById(id).orElseThrow(
@@ -28,30 +27,21 @@ public class ComicService implements IService<Comic> {
         );
     }
 
-    @Override
     public List<Comic> getAll() {
         logger.info("Get all comic");
         return (List<Comic>) repository.findAll();
     }
 
-    @Override
     public Comic create(Comic obj) {
         logger.info(String.format("Create new comic: %s", obj));
         obj.setId(null);
         return repository.save(obj);
     }
 
-    @Override
     public Comic update(int id, Comic obj) {
         logger.info(String.format("Update comic with id=%s to %s", id, obj));
         obj.setId(id);
         return repository.save(obj);
-    }
-
-    @Override
-    public void delete(int id) {
-        logger.info(String.format("Delete comic with id: %s", id));
-        repository.deleteById(id);
     }
 
 }

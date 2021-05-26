@@ -9,8 +9,6 @@ public class ComicTestingObjects {
     public static final Comic TEST_NO_WRONG0 = new Comic();
     public static final Comic TEST_NO_WRONG1 = new Comic();
 
-    public static final Comic TEST_NULL = new Comic();
-
     public static final Comic TEST_WRONG0 = new Comic();
     public static final Comic TEST_WRONG1 = new Comic();
     public static final Comic TEST_WRONG2 = new Comic();

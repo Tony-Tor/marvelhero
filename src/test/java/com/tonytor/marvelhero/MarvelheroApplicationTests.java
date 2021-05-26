@@ -32,8 +32,6 @@ class ControllersTests {
     static private ComicController comicController;
     static private ComicCharacterRelationController comicCharacterRelationController;
     static private ImageController imageController;
-    static private ImageService imageService;
-    static private ComicCharacterService comicCharacterService;
 
     @BeforeAll
     @Sql("classpath:data.sql")
@@ -49,8 +47,6 @@ class ControllersTests {
         ControllersTests.comicController = comicController;
         ControllersTests.comicCharacterRelationController = comicCharacterRelationController;
         ControllersTests.imageController = imageController;
-        ControllersTests.imageService = imageService;
-        ControllersTests.comicCharacterService = comicCharacterService;
 
         imageService.create(ImageTestingObjects.TEST0);
 

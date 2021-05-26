@@ -12,8 +12,6 @@ import java.util.stream.Collectors;
 
 public class CharacterFilterAndSorter {
 
-    static private final Logger logger = LoggerFactory.getLogger(CharacterFilterAndSorter.class);
-
     static public List<Character> filterAndSort(Map<String, String> params, List<Character> list) {
         return sort(params, filter(params, list));
     }

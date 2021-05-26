@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping(value = "/v1/public/image", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ImageController {
-    static private final Logger logger = LoggerFactory.getLogger(ImageController.class);
 
     private final ImageService service;
 

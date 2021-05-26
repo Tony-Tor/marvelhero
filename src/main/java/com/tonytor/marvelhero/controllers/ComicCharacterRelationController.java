@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/v1/public", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ComicCharacterRelationController {
-    static private final Logger logger = LoggerFactory.getLogger(CharacterController.class);
 
     private final CharacterService characterService;
     private final ComicService comicService;

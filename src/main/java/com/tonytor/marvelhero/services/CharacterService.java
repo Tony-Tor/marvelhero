@@ -18,7 +18,6 @@ public class CharacterService  implements IService<Character> {
         this.repository = repository;
     }
 
-    @Override
     public Character get(int id) {
         logger.info(String.format("Get character with id: %s", id));
         return repository.findById(id).orElseThrow(
@@ -28,30 +27,21 @@ public class CharacterService  implements IService<Character> {
         );
     }
 
-    @Override
     public List<Character> getAll() {
         logger.info("Get all character");
         return (List<Character>) repository.findAll();
     }
 
-    @Override
     public Character create(Character obj) {
         logger.info(String.format("Create new character: %s", obj));
         obj.setId(null);
         return repository.save(obj);
     }
 
-    @Override
     public Character update(int id, Character obj) {
         logger.info(String.format("Update character with id=%s to %s", id, obj));
         obj.setId(id);
         return repository.save(obj);
-    }
-
-    @Override
-    public void delete(int id) {
-        logger.info(String.format("Delete character with id: %s", id));
-        repository.deleteById(id);
     }
 
 }

@@ -7,10 +7,6 @@ public class ImageTestingObjects {
     public static final Image TEST1 = new Image();
     public static final Image TEST2 = new Image();
 
-    public static final Image TEST_NULL = new Image();
-
-    public static final Image TEST_UPDATE = new Image();
-
     static {
         TEST0.setId(1000);
         TEST0.setName("no logo");
