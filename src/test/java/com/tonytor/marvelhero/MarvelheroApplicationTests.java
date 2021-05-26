@@ -39,8 +39,7 @@ class ControllersTests {
                                   @Autowired ComicController comicController,
                                   @Autowired ComicCharacterRelationController comicCharacterRelationController,
                                   @Autowired ImageController imageController,
-                                  @Autowired ImageService imageService,
-                                  @Autowired ComicCharacterService comicCharacterService
+                                  @Autowired ImageService imageService
     ){
         logger.info(()->"initialize tests");
         ControllersTests.characterController = characterController;
@@ -126,7 +125,7 @@ class ControllersTests {
 
 
 
-
+/*
     //CreateWrongTests
     @Test
     void createWrongComicTest(){
@@ -232,5 +231,5 @@ class ControllersTests {
 
     @Test
     void getWrongComicsFromCharacterTest(){
-    }
+    }*/
 }
