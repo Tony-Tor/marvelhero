@@ -1,4 +1,7 @@
 # marvelhero
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6a4cd4bab39d48b7abea23569619c340)](https://app.codacy.com/gh/Tony-Tor/marvelhero?utm_source=github.com&utm_medium=referral&utm_content=Tony-Tor/marvelhero&utm_campaign=Badge_Grade_Settings)
+
 Rest API Spring Postgres Docker app. This is an application for storing information about comic book characters. Swagger docs on localhost:8080/swagger-ui/index.html
 ## Filters
 + Characters
