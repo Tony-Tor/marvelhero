@@ -5,7 +5,6 @@ import com.tonytor.marvelhero.controllers.ComicCharacterRelationController;
 import com.tonytor.marvelhero.controllers.ComicController;
 import com.tonytor.marvelhero.controllers.ImageController;
 import com.tonytor.marvelhero.model.to.ComicCharacterTo;
-import com.tonytor.marvelhero.services.ComicCharacterService;
 import com.tonytor.marvelhero.services.ImageService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;

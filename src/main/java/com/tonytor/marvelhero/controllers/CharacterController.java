@@ -6,8 +6,6 @@ import com.tonytor.marvelhero.model.Character;
 import com.tonytor.marvelhero.model.Comic;
 import com.tonytor.marvelhero.services.CharacterService;
 import com.tonytor.marvelhero.services.ComicCharacterService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 

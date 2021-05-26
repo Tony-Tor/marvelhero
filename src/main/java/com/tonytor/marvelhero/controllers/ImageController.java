@@ -3,8 +3,6 @@ package com.tonytor.marvelhero.controllers;
 import com.tonytor.marvelhero.model.Image;
 import com.tonytor.marvelhero.model.to.ImageTo;
 import com.tonytor.marvelhero.services.ImageService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
