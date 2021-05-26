@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class ExceptionTo {
-    String code;
-    String message;
+    private String code;
+    private String message;
 }

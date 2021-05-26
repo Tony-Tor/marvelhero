@@ -19,19 +19,19 @@ public class Comic extends AbstractIdEntity{
     @Size(max = 50)
     @Column(nullable = false, length = 2000)
     @NotNull
-    String name;
+    private String name;
     @Column(nullable = false)
     @NotNull
-    LocalDate published;
+    private LocalDate published;
     @Size(max = 2000)
     @Column(nullable = false, length = 2000)
-    String description;
+    private String description;
     @Range(min = 0, max = 3000000)
     @Column(nullable = false)
-    Integer prise;
+    private Integer prise;
     @Range(min = 1, max = 5000)
     @Column(nullable = false)
-    Integer pageOfCount;
+    private Integer pageOfCount;
     @ManyToOne(fetch = FetchType.EAGER)
-    Image image;
+    private Image image;
 }

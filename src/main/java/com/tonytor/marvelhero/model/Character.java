@@ -15,15 +15,15 @@ public class Character extends AbstractIdEntity{
     @Size(max = 50)
     @Column(nullable = false, length = 50)
     @NotNull
-    String name;
+    private String name;
     @Column(nullable = false)
     @NotNull
-    LocalDate created;
+    private LocalDate created;
     @Size(max = 2000)
     @Column(nullable = false, length = 2000)
-    String description;
+    private String description;
     @ManyToOne(fetch = FetchType.EAGER)
-    Image image;
+    private Image image;
 
 
 }

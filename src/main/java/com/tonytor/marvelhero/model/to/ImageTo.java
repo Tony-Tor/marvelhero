@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 public class ImageTo {
-    String id;
-    String name;
+    private String id;
+    private String name;
 
     public ImageTo(Image image) {
         this.id = image.getId().toString();

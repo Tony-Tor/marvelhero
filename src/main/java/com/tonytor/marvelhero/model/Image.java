@@ -15,9 +15,9 @@ public class Image extends AbstractIdEntity {
     @Size(max = 50)
     @Column(nullable = false, length = 50)
     @NotNull
-    String name;
+    private String name;
     @NotNull
     @Size(max = 100000)
     @Column(length = 100000)
-    String base64;
+    private String base64;
 }

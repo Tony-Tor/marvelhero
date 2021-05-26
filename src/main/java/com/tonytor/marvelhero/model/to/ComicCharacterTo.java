@@ -14,6 +14,6 @@ public class ComicCharacterTo {
         this.nameComic = comicCharacter.getComic().getName();
     }
 
-    String nameCharacter;
-    String nameComic;
+    private String nameCharacter;
+    private String nameComic;
 }

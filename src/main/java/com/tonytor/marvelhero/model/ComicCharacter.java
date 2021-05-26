@@ -17,13 +17,13 @@ public class ComicCharacter extends AbstractIdEntity{
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    Comic comic;
+    private Comic comic;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    Character character;
+    private Character character;
 
 
 }
